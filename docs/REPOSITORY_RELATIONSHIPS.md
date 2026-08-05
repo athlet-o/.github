@@ -36,6 +36,6 @@ This file is rendered from `repository-relationships.json`. The JSON registry is
 ## Editing relationships
 
 Put reviewed public declarations in `repository-relationships.manual.json`; do not edit the generated registry directly.
-Private repository names and private-only relationships belong in the private `ORESoftware/project-registry` mirror.
+Private repository names and private-only relationships belong in the private `approved-private-registry` mirror.
 Inferred edges are advisory and must remain visibly labeled until reviewed.
 <!-- ore-org-baseline:end -->
