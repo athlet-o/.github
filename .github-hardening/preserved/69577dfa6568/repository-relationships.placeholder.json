@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "organization": "athlet-o",
+  "generated_at": null,
+  "repositories": [],
+  "notes": [
+    "Populate from live GitHub inventory; do not infer unverified dependencies.",
+    "Repository-local manifests remain authoritative for exact dependency versions."
+  ]
+}
