@@ -1,5 +1,5 @@
 {
-  "$id": "https://github.com/ORESoftware/project-registry/schema/repository-relationships.schema.json",
+  "$id": "private-registry://canonical/schema/repository-relationships.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "additionalProperties": true,
   "allOf": [
@@ -85,7 +85,7 @@
           "type": "string"
         },
         "repository": {
-          "const": "ORESoftware/project-registry"
+          "const": "approved-private-registry"
         }
       },
       "required": [

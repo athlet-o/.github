@@ -23,7 +23,7 @@ Promote this pair from optional proposal to planned only when the coach/facility
 
 - GitHub Project: [`athlet-o-project` — Project 1](https://github.com/orgs/athlet-o/projects/1)
 - Linear project: `github.com/athlet-o`
-- Central registry: [`ORESoftware/project-registry`](https://github.com/ORESoftware/project-registry/blob/main/registry/desktop-applications.json)
+- Central registry: [`approved-private-registry`](private-registry://canonical/registry/desktop-applications.json)
 - Portfolio rollout: [`DEN-2469`](https://linear.app/denman/issue/DEN-2469/roll-out-paired-rust-flutter-desktop-repositories-across-the-portfolio)
 
 Promotion, repository creation, renames, transfers, archival, privacy-boundary changes, or platform-status changes must update this document, Linear, the central registry, and both companion repositories together.

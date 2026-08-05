@@ -3,7 +3,7 @@
 
 The public graph is safe for an organization's public ``.github`` repository:
 private repositories and relationships that would reveal them are omitted.  A
-complete graph may be synchronized to the private ``ORESoftware/project-registry``
+complete graph may be synchronized to the private ``approved-private-registry``
 repository by the rollout client.
 """
 from __future__ import annotations
@@ -217,7 +217,7 @@ def empty_manual_declarations(owner: str) -> dict[str, Any]:
         "relationships": [],
         "notes": [
             "Declare reviewed repository relationships here; generated inventory belongs in repository-relationships.json.",
-            "A public .github repository must not name private repositories. Put private declarations in ORESoftware/project-registry.",
+            "A public .github repository must not name private repositories. Put private declarations in approved-private-registry.",
         ],
     }
 
@@ -530,7 +530,7 @@ def build_relationship_graph(
     }
     if audience == PUBLIC_AUDIENCE:
         graph["private_registry"] = {
-            "repository": "ORESoftware/project-registry",
+            "repository": "approved-private-registry",
             "path": f"owners/{owner}.json",
             "contains_non_public_inventory": bool(omitted_nonpublic),
             "digest": private_graph_digest,
@@ -646,8 +646,8 @@ def validate_relationship_graph(graph: Mapping[str, Any]) -> None:
         if not isinstance(private_registry, dict):
             errors.append("public graph requires private_registry metadata")
         else:
-            if private_registry.get("repository") != "ORESoftware/project-registry":
-                errors.append("private_registry.repository must be ORESoftware/project-registry")
+            if private_registry.get("repository") != "approved-private-registry":
+                errors.append("private_registry.repository must be approved-private-registry")
             if private_registry.get("path") != f"owners/{owner}.json":
                 errors.append(f"private_registry.path must be owners/{owner}.json")
             private_digest = str(private_registry.get("digest") or "")
@@ -724,7 +724,7 @@ def render_relationship_markdown(graph: Mapping[str, Any]) -> str:
         "## Editing relationships",
         "",
         "Put reviewed public declarations in `repository-relationships.manual.json`; do not edit the generated registry directly.",
-        "Private repository names and private-only relationships belong in the private `ORESoftware/project-registry` mirror.",
+        "Private repository names and private-only relationships belong in the private `approved-private-registry` mirror.",
         "Inferred edges are advisory and must remain visibly labeled until reviewed.",
     ])
     if hints:
@@ -773,7 +773,7 @@ def schema_document() -> dict[str, Any]:
     }
     return {
         "$schema": "https://json-schema.org/draft/2020-12/schema",
-        "$id": "https://github.com/ORESoftware/project-registry/schema/repository-relationships.schema.json",
+        "$id": "private-registry://canonical/schema/repository-relationships.schema.json",
         "title": "Repository relationship registry",
         "type": "object",
         "additionalProperties": True,
@@ -807,7 +807,7 @@ def schema_document() -> dict[str, Any]:
                 "additionalProperties": True,
                 "required": ["repository", "path", "contains_non_public_inventory", "digest"],
                 "properties": {
-                    "repository": {"const": "ORESoftware/project-registry"},
+                    "repository": {"const": "approved-private-registry"},
                     "path": {"type": "string", "pattern": r"^owners/[^/]+\.json$"},
                     "contains_non_public_inventory": {"type": "boolean"},
                     "digest": {"type": "string", "pattern": r"^sha256:[0-9a-f]{64}$"},
@@ -826,7 +826,7 @@ def schema_document() -> dict[str, Any]:
 def manual_schema_document() -> dict[str, Any]:
     return {
         "$schema": "https://json-schema.org/draft/2020-12/schema",
-        "$id": "https://github.com/ORESoftware/project-registry/schema/repository-relationships.manual.schema.json",
+        "$id": "private-registry://canonical/schema/repository-relationships.manual.schema.json",
         "title": "Reviewed repository relationship declarations",
         "type": "object",
         "additionalProperties": False,

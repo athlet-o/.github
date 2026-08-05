@@ -29,7 +29,7 @@
     "contains_non_public_inventory": true,
     "digest": "sha256:a77c4be37f1369055aefe61a4d3e706f86eed3615f77514c3b98a6a46e9142b6",
     "path": "owners/athlet-o.json",
-    "repository": "ORESoftware/project-registry"
+    "repository": "approved-private-registry"
   },
   "relationships": [
     {
