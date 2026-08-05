@@ -1,0 +1,38 @@
+name: baseline policy
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Validate organization baseline
+        shell: bash
+        run: |
+          set -euo pipefail
+          required=(
+            README.md
+            profile/README.md
+            CONTRIBUTING.md
+            SECURITY.md
+            SUPPORT.md
+            CODE_OF_CONDUCT.md
+            GOVERNANCE.md
+            AGENTS.md
+            repository-relationships.json
+            organization-policy.json
+          )
+          for file in "${required[@]}"; do
+            test -s "$file" || { echo "::error file=$file::required baseline file is missing or empty"; exit 1; }
+          done
+          python3 -m json.tool organization-policy.json >/dev/null
+          python3 -m json.tool repository-relationships.json >/dev/null
+          ! git grep -nE '^(<<<<<<<|=======|>>>>>>>)' -- . ':!*.lock'

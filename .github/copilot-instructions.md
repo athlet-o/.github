@@ -1,0 +1,1 @@
+Read AGENTS.md and repository-local instructions before editing. Keep changes focused and evidence truthful. Resolve conflicts by understanding both branches and constructing the best coherent result; never select ours/theirs wholesale for substantive conflicts. Preserve security, compatibility, data durability, and repository boundaries.
