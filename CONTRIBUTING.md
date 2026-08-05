@@ -40,3 +40,21 @@ The confidence assessment must account for test relevance and coverage, review f
 ### Merge record
 
 Use the repository's permitted merge method. Re-evaluate all gates whenever the head SHA changes. In the pull request, record the source and target branches, tested SHA, check results, confidence percentage, and rationale before merging.
+
+<!-- ore-org-baseline:begin -->
+Thank you for contributing to repositories owned by [`athlet-o`](https://github.com/athlet-o). Repository-local instructions take precedence when they are stricter.
+
+## Before proposing a change
+
+1. Read the repository README, contribution notes, lowercase `agents.md`, architecture documentation, linked issues, and relevant [Linear project](https://linear.app/denman/project/githubcomathlet-o-b5a995fed9bb).
+2. Confirm the authoritative source repository and whether files are generated, vendored, mirrored, or owned by another repository.
+3. Fetch current remote state and preserve concurrent work. Avoid git rebase in favor of git merge.
+4. Do not use `git stash`, `git reset`, `git clean`, `git filter-repo`, force-push, destructive worktree/submodule operations, or broad deletion/rewrite commands without exact authorization.
+5. Never include secrets, credentials, customer data, legal records, or other private information in issues, commits, test fixtures, screenshots, or logs.
+
+## Pull requests
+
+Use a focused feature branch and a draft pull request. Link the relevant issue or Linear work; explain behavior, risk, security impact, migration and rollback considerations, tests, and cross-repository dependencies. Resolve conflicts semantically with full context—normally including the merge base and 3–10 relevant commits—rather than selecting one side wholesale. Run all affected checks and scan the complete worktree for conflict markers.
+
+External GitHub Actions must be pinned to full commit SHAs. Workflows must use explicit least-privilege permissions, explicit timeouts, and non-persisted checkout credentials.
+<!-- ore-org-baseline:end -->
