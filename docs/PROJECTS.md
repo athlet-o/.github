@@ -1,5 +1,3 @@
-
-
 <!-- org-project-routing:start -->
 # Project routing
 
