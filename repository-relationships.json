@@ -1,0 +1,138 @@
+{
+  "$schema": "./repository-relationships.schema.json",
+  "audience": "public",
+  "generated": {
+    "complete_for_visibility": "public",
+    "generated_at": "2026-08-05T21:07:32Z",
+    "generator_version": "2026-08-04.1",
+    "inventory_digest": "sha256:b8ec69b6bc09da75db1f22882e9e183079ce4b26ce389efe2e851ca5a58800d5",
+    "managed_by": "ore-repository-relationship-rollout",
+    "omitted_repository_count": 9,
+    "private_repositories_omitted": true,
+    "source": "GitHub GraphQL repository inventory plus reviewed manual declarations"
+  },
+  "owner": {
+    "account_type": "organization",
+    "dotgithub_repository": "athlet-o/.github",
+    "github_id": "306008767",
+    "linear_project": {
+      "id": "0de9ab82-98b3-4c1d-950b-2020d80bbccc",
+      "name": "github.com/athlet-o",
+      "team_id": "eb8ab169-5afe-4b6f-9cab-3f2aa3e887dc",
+      "url": "https://linear.app/denman/project/githubcomathlet-o-b5a995fed9bb",
+      "workspace": "denman"
+    },
+    "login": "athlet-o",
+    "mapping_id": "context:athlet-o"
+  },
+  "private_registry": {
+    "contains_non_public_inventory": true,
+    "digest": "sha256:a77c4be37f1369055aefe61a4d3e706f86eed3615f77514c3b98a6a46e9142b6",
+    "path": "owners/athlet-o.json",
+    "repository": "approved-private-registry"
+  },
+  "relationships": [
+    {
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "kind": "github-owner-membership",
+          "source": "GitHub GraphQL repository inventory"
+        }
+      ],
+      "from": "athlet-o/.github",
+      "id": "sha256:10214e34ec03a3b09058c9f12ef0f7b7d4e3d43528ac26d9179592b1d8c8e652",
+      "notes": "Organization .github policy and community-health defaults govern this sibling repository.",
+      "required": true,
+      "scope": "organization",
+      "status": "declared",
+      "to": "athlet-o/athlet-o.github.io",
+      "type": "governs"
+    },
+    {
+      "confidence": 1.0,
+      "evidence": [
+        {
+          "kind": "github-owner-membership",
+          "source": "GitHub GraphQL repository inventory"
+        }
+      ],
+      "from": "athlet-o/.github",
+      "id": "sha256:8b54dbcd23dab8e5b47d825e3f772c503c973aed1f54feeabd6a18e733faffc4",
+      "notes": "Organization .github policy and community-health defaults govern this sibling repository.",
+      "required": true,
+      "scope": "organization",
+      "status": "declared",
+      "to": "athlet-o/athleto-app-rs",
+      "type": "governs"
+    },
+    {
+      "confidence": 0.95,
+      "evidence": [
+        {
+          "kind": "repository-name",
+          "value": "athlet-o.github.io"
+        }
+      ],
+      "from": "athlet-o/athlet-o.github.io",
+      "id": "sha256:6e365eec2a699ab8e9f92f41fde444339b09425e815fa64039a5f35de0242e2f",
+      "notes": "The conventional *.github.io repository documents the organization profile.",
+      "required": false,
+      "scope": "organization",
+      "status": "inferred",
+      "to": "athlet-o/.github",
+      "type": "documents"
+    }
+  ],
+  "repositories": [
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "athlet-o/.github",
+      "github_id": "1324047010",
+      "name": ".github",
+      "owner": "athlet-o",
+      "roles": [
+        "community-health",
+        "governance",
+        "relationship-registry"
+      ],
+      "source": "github-graphql-api",
+      "url": "https://github.com/athlet-o/.github",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "athlet-o/athlet-o.github.io",
+      "github_id": "1303370643",
+      "name": "athlet-o.github.io",
+      "owner": "athlet-o",
+      "roles": [
+        "documentation-site"
+      ],
+      "source": "github-graphql-api",
+      "url": "https://github.com/athlet-o/athlet-o.github.io",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "athlet-o/athleto-app-rs",
+      "github_id": "1303375706",
+      "name": "athleto-app-rs",
+      "owner": "athlet-o",
+      "roles": [
+        "repository"
+      ],
+      "source": "github-graphql-api",
+      "url": "https://github.com/athlet-o/athleto-app-rs",
+      "visibility": "public"
+    }
+  ],
+  "schema_version": 1,
+  "unresolved_hints": []
+}

@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "organization": "athlet-o",
+  "canonical_profile_repository": "athlet-o/.github",
+  "conflict_resolution": {
+    "mode": "semantic",
+    "blanket_ours_or_theirs": false,
+    "inspect_history_and_tests": true
+  },
+  "repository_consolidation": {
+    "preserve_history": true,
+    "prefer_short_canonical_names": true,
+    "require_deprecation_pointer": true
+  },
+  "validation": {
+    "exact_head": true,
+    "truthful_evidence": true
+  }
+}

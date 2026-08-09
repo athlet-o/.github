@@ -1,0 +1,11 @@
+schema_version: 1
+organization: athlet-o
+canonical_profile_repository: athlet-o/.github
+policy:
+  semantic_conflict_resolution: required
+  preserve_history_during_consolidation: true
+  exact_head_validation: true
+  secrets_in_repository: forbidden
+integrations:
+  linear: verify_per_project
+  slack: verify_per_project
