@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "composition_policy": {
+      "type": "object"
+    },
+    "organization": {
+      "type": "string"
+    },
+    "privacy": {
+      "type": "object"
+    },
+    "registry_repository": {
+      "pattern": "^[^/]+/\\.github$",
+      "type": "string"
+    },
+    "relationships": {
+      "type": "array"
+    },
+    "repositories": {
+      "type": "array"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    }
+  },
+  "required": [
+    "schema_version",
+    "organization",
+    "registry_repository",
+    "privacy",
+    "repositories",
+    "relationships",
+    "composition_policy"
+  ],
+  "title": "Organization repository relationships",
+  "type": "object"
+}
