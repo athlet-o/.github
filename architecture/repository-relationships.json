@@ -1,0 +1,130 @@
+{
+  "$schema": "./repository-relationships.schema.json",
+  "composition_policy": {
+    "dual_managed_invariant": "gitlink SHA must equal the source commit in the Zed lock entry",
+    "editable_source_composition": "git-submodules",
+    "package_and_artifact_resolution": "zed-pkg",
+    "production_deployment_resolution": "immutable OCI image digest or signed artifact",
+    "production_source_checkout": "forbidden as a runtime deployment mechanism"
+  },
+  "inventory_scope": "public-repositories-plus-role-contracts",
+  "observability_policy": {
+    "logs": "structured output with trace_id/span_id correlation",
+    "metrics": "Prometheus-compatible bounded-cardinality metrics",
+    "required_resource_attributes": [
+      "service.name",
+      "service.namespace",
+      "service.version",
+      "deployment.environment",
+      "vcs.ref.head.revision"
+    ],
+    "traces": "OpenTelemetry with W3C trace context"
+  },
+  "organization": "athlet-o",
+  "privacy": {
+    "private_repository_count": 9,
+    "private_repository_names_published": false,
+    "public_repository_names_published": true,
+    "reason": "The public .github registry intentionally withholds private repository names and edges."
+  },
+  "registry_repository": "athlet-o/.github",
+  "relationships": [
+    {
+      "from": "athlet-o/.github",
+      "kind": "governs",
+      "rationale": "organization defaults, safety, and relationship declarations",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "athlet-o/athlet-o.github.io"
+    },
+    {
+      "from": "athlet-o/.github",
+      "kind": "governs",
+      "rationale": "organization defaults, safety, and relationship declarations",
+      "source_basis": "role-convention",
+      "status": "inferred",
+      "to": "athlet-o/athleto-app-rs"
+    },
+    {
+      "from": "organization://athlet-o",
+      "kind": "coordinates_via",
+      "rationale": "locks, leases, idempotency, elections, schedules, budgets, and task claims",
+      "source_basis": "explicit-platform-decision",
+      "status": "platform-default",
+      "to": "capability://fiducia-cloud/distributed-coordination"
+    },
+    {
+      "from": "organization://athlet-o",
+      "kind": "authenticates_via",
+      "rationale": "platform human identity and session authority",
+      "source_basis": "explicit-platform-decision",
+      "status": "platform-default",
+      "to": "capability://shared-auth/human-identity"
+    },
+    {
+      "from": "organization://athlet-o",
+      "kind": "deployed_via",
+      "rationale": "immutable artifacts are promoted by digest through GitOps",
+      "source_basis": "platform-policy",
+      "status": "platform-default",
+      "to": "platform://ORESoftware/k8s-cluster"
+    },
+    {
+      "from": "organization://athlet-o",
+      "kind": "packaged_via",
+      "rationale": "Zed resolves artifacts while submodules compose editable source",
+      "source_basis": "platform-policy",
+      "status": "platform-default",
+      "to": "platform://zed-pkg"
+    }
+  ],
+  "repositories": [
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "athlet-o/.github",
+      "lifecycle": "active",
+      "name": ".github",
+      "role": "organization_governance",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "athlet-o/athleto-app-rs",
+      "lifecycle": "active",
+      "name": "athleto-app-rs",
+      "role": "application",
+      "visibility": "public"
+    },
+    {
+      "archived": false,
+      "default_branch": "main",
+      "fork": false,
+      "full_name": "athlet-o/athlet-o.github.io",
+      "lifecycle": "active",
+      "name": "athlet-o.github.io",
+      "role": "site",
+      "visibility": "public"
+    }
+  ],
+  "role_contracts": {
+    "api_service": "Owns public APIs, webhooks, authorization, validation, and orchestration.",
+    "client_sdk": "Depends on interfaces and exposes generated clients plus thin wrappers.",
+    "composition_workspace": "Composes source repositories and records the release BOM.",
+    "end_to_end_tests": "Runs black-box compatibility and user-flow checks.",
+    "infrastructure": "Owns product cloud resources; promotion remains GitOps-controlled.",
+    "interfaces": "Own OpenAPI, events, JSON Schema, compatibility fixtures, and DTO inputs.",
+    "mcp_server": "Calls product SDKs/APIs; no parallel domain persistence.",
+    "sync_service": "Owns product conflict policy/adapters and wraps Opto reconciliation.",
+    "web_bff": "Owns browser sessions, CSRF, HTML/SSR, and calls the product API."
+  },
+  "schema_version": "1.0.0",
+  "service_boundary_policy": {
+    "cross_service_database_access": "forbidden-by-default",
+    "mcp_database_access": "forbidden-by-default; MCP calls the product API/SDK",
+    "preferred_cross_service_calls": "typed API/SDK, event, or owned replicated read model"
+  }
+}
