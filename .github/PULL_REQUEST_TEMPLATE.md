@@ -1,59 +1,40 @@
-## Summary
+## Summary and ownership
 
-Describe the problem, the chosen design, and the user or operational outcome.
-
-## Verification
-
-List commands, tests, checks, and manual validation actually performed against this exact head.
-
-## Compatibility and risk
-
-Explain API/data/configuration changes, security implications, rollout, migration, and rollback.
-
-## Conflict reconciliation
-
-When conflicts were present, summarize both sides' intent and how the final implementation preserves or deliberately supersedes each part.
-
-- [ ] No secrets or private data are included.
-- [ ] Documentation and tests reflect the final contract.
-- [ ] The exact proposed head was verified.
-
-<!-- ore-org-baseline:begin -->
-## Summary
-
-Describe the behavior and intent, not only the files changed.
+Describe the problem, the chosen design, the user or operational outcome, and why this repository owns the change.
 
 ## Planning and dependencies
 
 - Linear project or issue: [github.com/athlet-o](https://linear.app/denman/project/githubcomathlet-o-b5a995fed9bb)
 - Related GitHub issues or pull requests:
-- Related repositories or external contracts:
+- Related repositories, APIs, schemas, generated artifacts, migrations, infrastructure, deployments, or external contracts:
 
-## Risk, security, migration, and rollback
+## Compatibility, security, and rollout
 
 - User or operational impact:
-- Security/privacy impact and secret-handling review:
-- Migration or compatibility considerations:
-- Rollback or recovery approach:
+- API, data, and configuration compatibility:
+- Security, privacy, and secret-handling impact:
+- Migration and rollout plan:
+- Rollback or roll-forward recovery plan:
 
-## Validation
+## Verification
 
-List exact commands, environments, and results. Include unit, integration, contract, build, and end-to-end evidence as applicable.
+List the exact commands, environments, tests, checks, builds, and manual validation performed against this exact head. Include unit, integration, contract, security, migration, and end-to-end evidence as applicable.
 
-## Conflict-resolution record
+## Conflict-reconciliation record
 
-- [ ] Remote state was fetched before editing and before pushing.
-- [ ] Concurrent work was preserved; no destructive operation or history rewrite was used.
-- [ ] Conflicts, if any, were resolved semantically using the merge base, both sides, 3–10 relevant commits, tests, contracts, linked work, and related repositories.
+When conflicts were present, explain both sides' intent and how the final implementation preserves, combines, or deliberately supersedes each part.
+
+- [ ] Remote state was fetched before editing and again before pushing.
+- [ ] Concurrent work, branches, worktrees, and stashes were preserved without rewriting shared history.
+- [ ] Conflicts were resolved semantically using the merge base, both sides, relevant commit history, tests, contracts, linked work, and related repositories.
+- [ ] No `ours` or `theirs` side was accepted wholesale without conceptual review.
 - [ ] The complete worktree was scanned for unresolved conflict markers.
-- [ ] No `ours`/`theirs` side was accepted wholesale without conceptual review.
 
 ## Final checklist
 
 - [ ] Focused commits and reviewable diff
-- [ ] Documentation and generated artifacts updated from authoritative sources
+- [ ] Documentation, schemas, generated artifacts, and tests reflect the final contract
 - [ ] External Actions pinned to full commit SHAs
 - [ ] Explicit least-privilege workflow permissions and timeouts
-- [ ] No credentials, private data, or sensitive logs included
-- [ ] Authoritative remote branch/PR/check evidence verified
-<!-- ore-org-baseline:end -->
+- [ ] No credentials, private/production data, or sensitive logs included
+- [ ] Authoritative remote branch, pull-request, and check evidence verified
