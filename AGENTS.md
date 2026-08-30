@@ -10,6 +10,10 @@ These instructions apply to this repository. Repository-local instructions may a
 - Canonical Linear project: https://linear.app/denman/project/githubcomathlet-o-b5a995fed9bb
 - Fleet tracking issue: https://github.com/ORESoftware/k8s-cluster/issues/1222
 
+
+## Persistence dual-source (required reading)
+
+Before changing schema, ORM, or migrations, read [`docs/PERSISTENCE_DUAL_SOURCE.md`](docs/PERSISTENCE_DUAL_SOURCE.md). Fleet plan: [general-migration-plan](https://linear.app/denman/document/general-migration-plan-f76fadd4cbb2).
 ## Instruction discovery
 
 Lowercase `agents.md` is canonical. Read every applicable lowercase `agents.md` from the repository root toward the current working directory before editing. Uppercase `AGENTS.md` and provider-specific instruction files are compatibility mirrors and must remain aligned with the applicable lowercase policy.
