@@ -35,3 +35,11 @@ Describe the user-visible behavior, repositories/components affected, compatibil
 ## Validation evidence and residual risk
 
 Provide commands, checks, fixtures, test-org run links, migration/drift results, and known limitations.
+
+## Salvage check
+
+If this PR supersedes or replaces an older one, say which, and name at least one
+concrete thing carried forward from it (a test, a fixture, an error message, a
+pin, a doc paragraph). See [`docs/pr-salvage-policy.md`](../docs/pr-salvage-policy.md).
+
+- [ ] Supersedes nothing, **or** the salvaged item is named above.
