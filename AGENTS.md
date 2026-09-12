@@ -9,7 +9,6 @@ These instructions apply to this repository. Repository-local instructions may a
 - Public organization defaults: https://github.com/athlet-o/.github
 - Canonical Linear project: https://linear.app/denman/project/githubcomathlet-o-b5a995fed9bb
 - Fleet tracking issue: https://github.com/ORESoftware/k8s-cluster/issues/1222
-
 ## Instruction discovery
 
 Lowercase `agents.md` is canonical. Read every applicable lowercase `agents.md` from the repository root toward the current working directory before editing. Uppercase `AGENTS.md` and provider-specific instruction files are compatibility mirrors and must remain aligned with the applicable lowercase policy.
@@ -64,3 +63,19 @@ Never print, log, commit, paste into issues, include in fixtures, or expose toke
 
 Use focused branches and pull requests. Link the relevant Linear issue or project. Explain behavior, risks, migration and roll-forward considerations, security impact, tests run, conflicts and their semantic resolution, and cross-repository dependencies. Never report a branch, commit, pull request, merge, deployment, test run, or external update as complete without authoritative remote evidence.
 <!-- ore-org-baseline:end -->
+
+<!-- persistence-authority:begin -->
+## Persistence authority (TypeSpec + JSON Schema + Diesel + SeaORM)
+
+Product database contracts for this organization are owned in `*-lib-core`, not in `ORESoftware/k8s-libs-and-shared-defs`.
+
+Before changing schema, ORM adapters, or migrations, read [`docs/PERSISTENCE_AUTHORITY.md`](docs/PERSISTENCE_AUTHORITY.md).
+
+- **P0:** authored persistence TypeSpec (canonical AST)
+- **P1:** independently authored persistence JSON Schema (secondary-primary; release veto; never overwritten by TypeSpec emitters)
+- **Runtime:** Diesel + diesel-async primary; SeaORM secondary
+- **Apply:** generated release `desired.sql` via [declarative-migrations](https://github.com/declarative-migrations) (`dpm`); no DDL at API/web boot
+- **Fleet plan:** [general-migration-plan](https://linear.app/denman/document/general-migration-plan-f76fadd4cbb2) revision f
+
+Do not land new product SQL or ORM generation in shared-defs for this org.
+<!-- persistence-authority:end -->
