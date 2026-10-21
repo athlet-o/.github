@@ -58,3 +58,15 @@ Use a focused feature branch and a draft pull request. Link the relevant issue o
 
 External GitHub Actions must be pinned to full commit SHAs. Workflows must use explicit least-privilege permissions, explicit timeouts, and non-persisted checkout credentials.
 <!-- ore-org-baseline:end -->
+
+## Rust-first scripts and automation
+
+**Rust is the required language for first-party scripts and automation; do not add new Python scripts.** This includes build/CI helpers, testing infrastructure, schema/data migrations, code generation, releases, deployment, audits, and developer/repository maintenance. Prefer a maintained Rust CLI or `cargo xtask`; shell/YAML should be small wrappers for invoking Rust tools where necessary.
+
+**Python scripts already in use are migration debt.** Inventory each script and its callers, then replace it with Rust before deleting the old implementation. Preserve flags, exit codes, output formats, error handling, security behavior, and supported platforms. Require representative positive, negative, and end-to-end parity tests, and update all CI, docs and hooks that reference the old script. Merely filing an issue or adding policy text does not establish parity.
+
+**Python application code may be allowed only for special, explicitly documented cases.** Document the owning team, use case, scope, why Rust is unsuitable, and review/retirement criteria if applicable. Application-specific tests can be part of that exception; generic build, CI and administrative scripts cannot. Do not delete approved Python application code as a side-effect of tooling migration.
+
+New Rust tooling should have reproducible `cargo` commands and meaningful tests; prefer `cargo fmt --check`, `cargo clippy -- -D warnings`, `cargo test` and relevant end-to-end checks. Only describe checks as passed if executed against the exact PR head.
+
+This canonical `.github` policy is organization-wide contributor guidance; ordinary `AGENTS.md` and custom workflows are **not automatically inherited** by sibling repositories. Mirror guidance deliberately into local agent instructions and configure actual checks separately.
