@@ -1,5 +1,7 @@
 # athlet-o organization defaults
 
+**Scripting policy:** [Rust-first scripts and automation](CONTRIBUTING.md#rust-first-scripts-and-automation); Python application code needs a specific documented exception. Existing Python automation is tracked migration debt.
+
 This public `.github` repository contains organization-wide community health files, contributor guidance, shared agent policy, and an explicit repository-relationship contract.
 
 Repository-local policy wins when it is stricter or more specific. Existing project history must be preserved during consolidation and conflict resolution.
